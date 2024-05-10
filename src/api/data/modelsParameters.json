@@ -1,0 +1,18 @@
+{
+    "KNeighborsClassifier" : {
+        "n_neighbors" : [],
+        "weights" : ["uniform", "distance"],
+        "algorithm" : ["auto", "ball_tree", "kd_tree", "brute"],
+        "leaf_size" : []
+    }, 
+    "DecisionTreeClassifier" : {
+        "criterion" : ["gini", "entropy", "log_loss"],
+        "splitter" : ["best", "random"],
+        "max_depth" : [],
+        "min_samples_split" : [],
+        "min_samples_leaf" : [],
+        "min_weight_fraction_leaf" : [],
+        "max_features" : [],
+        "max_leaf_nodes" : []
+    }
+}
