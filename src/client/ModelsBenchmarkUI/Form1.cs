@@ -71,7 +71,10 @@ namespace ModelsBenchmarkUI
             GlobalConfig.Connection.TryAddScore(new ScoreModel
             {
                 Model = model,
-                Parameters = parameters.Select(pair => $"{pair.Key}={pair.Value}").ToList(),
+                Parameters = parameters
+                    .Where(pair => !string.IsNullOrEmpty(pair.Value))
+                    .Select(pair => $"{pair.Key}={pair.Value}")
+                    .ToList(),
                 Score = accuracy
             });
 
