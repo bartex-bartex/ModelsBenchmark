@@ -1,4 +1,5 @@
 [
     "KNeighborsClassifier",
-    "DecisionTreeClassifier"
+    "DecisionTreeClassifier",
+    "RandomForestClassifier"
 ]

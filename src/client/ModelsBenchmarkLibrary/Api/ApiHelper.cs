@@ -14,6 +14,7 @@ namespace ModelsBenchmarkLibrary.Api
         public static void InitializeClient()
         {
             ApiClient = new HttpClient();
+            ApiClient.Timeout = Timeout.InfiniteTimeSpan;
             ApiClient.DefaultRequestHeaders.Accept.Clear();
             ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
             ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

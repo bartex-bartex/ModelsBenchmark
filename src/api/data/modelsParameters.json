@@ -14,5 +14,18 @@
         "min_weight_fraction_leaf" : [],
         "max_features" : [],
         "max_leaf_nodes" : []
+    },
+    "RandomForestClassifier" : {
+        "n_estimators" : [],
+        "criterion" : ["gini", "entropy", "log_loss"],
+        "max_depth" : [],
+        "min_samples_split" : [],
+        "min_samples_leaf" : [],
+        "min_weight_fraction_leaf" : [],
+        "max_features" : [],
+        "max_leaf_nodes" : [],
+        "min_impurity_decrease" : [],
+        "bootstrap" : ["True", "False"],
+        "oob_score" : ["True", "False"]
     }
 }

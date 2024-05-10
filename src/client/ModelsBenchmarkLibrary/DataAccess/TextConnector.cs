@@ -16,7 +16,7 @@ namespace ModelsBenchmarkLibrary.DataAccess
 
             scoreModels.Add(score);
 
-            scoreModels = scoreModels.OrderBy(scoreModels => scoreModels.Score).Take(10).ToList();
+            scoreModels = scoreModels.OrderByDescending(scoreModels => scoreModels.Score).Take(10).ToList();
 
             scoreModels.SaveToLeaderboardFile();
         }

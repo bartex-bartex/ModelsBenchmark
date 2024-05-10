@@ -2,6 +2,8 @@ import json
 import os
 from . import db
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 
@@ -35,13 +37,28 @@ def benchmark(model_name):
 
     X_train, X_test, y_train, y_test = db.load_data()
 
-    model = KNeighborsClassifier(**params)
+    model = None
+    try:
+        model = map_model(model_name, **params)
+    except ValueError as e:
+        return str(e), 400
+    
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
 
     accuracy = accuracy_score(y_test, y_pred) 
 
     return str(accuracy)
+
+def map_model(model_name, **params):
+    if model_name == "KNeighborsClassifier":
+        return KNeighborsClassifier(**params)
+    elif model_name == "DecisionTreeClassifier":
+        return DecisionTreeClassifier(**params)
+    elif model_name == "RandomForestClassifier":
+        return RandomForestClassifier(**params)
+    else:
+        raise ValueError(f"Model {model_name} not found")
 
 def normalize_parameters(params):
     keys_to_remove = []
@@ -53,9 +70,14 @@ def normalize_parameters(params):
             params[key] = int(value)
         elif is_float(value):
             params[key] = float(value)
+        elif is_bool(value):
+            params[key] = value.lower() == 'true'
     
     for key in keys_to_remove:
         del params[key]
+
+    # Seem important for me :-)
+    params['n_jobs'] = -1
 
     return params
 
@@ -72,3 +94,6 @@ def is_float(value):
         return True
     except ValueError:
         return False
+    
+def is_bool(value):
+    return value.lower() == 'true' or value.lower() == 'false'
