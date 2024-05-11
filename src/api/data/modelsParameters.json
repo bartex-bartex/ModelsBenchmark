@@ -3,7 +3,10 @@
         "n_neighbors" : [],
         "weights" : ["uniform", "distance"],
         "algorithm" : ["auto", "ball_tree", "kd_tree", "brute"],
-        "leaf_size" : []
+        "leaf_size" : [],
+        "p" : [],
+        "metric" : [],
+        "metric_params" : []
     }, 
     "DecisionTreeClassifier" : {
         "criterion" : ["gini", "entropy", "log_loss"],
@@ -42,11 +45,6 @@
         "verbose" : [],
         "warm_start" : ["True", "False"]
     },
-    "LinearRegression" : {
-        "fit_intercept" : ["True", "False"],
-        "copy_X" : ["True", "False"],
-        "positive" : ["True", "False"]
-    },
     "Perceptron" : {
         "penalty" : ["l2", "l1", "elasticnet"],
         "alpha" : [],
@@ -64,7 +62,7 @@
         "warm_start" : ["True", "False"]
     },
     "SGDClassifier" : {
-        "loss" : ["hinge", "log", "modified_huber", "squared_hinge", "perceptron", "squared_loss", "huber", "epsilon_insensitive", "squared_epsilon_insensitive"],
+        "loss" : ["hinge", "log_loss", "modified_huber", "squared_hinge", "perceptron", "squared_loss", "huber", "epsilon_insensitive", "squared_epsilon_insensitive"],
         "penalty" : ["l2", "l1", "elasticnet"],
         "alpha" : [],
         "l1_ratio" : [],

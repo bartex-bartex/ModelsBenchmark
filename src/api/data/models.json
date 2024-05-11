@@ -3,7 +3,6 @@
     "DecisionTreeClassifier",
     "RandomForestClassifier",
     "LogisticRegression",
-    "LinearRegression",
     "Perceptron",
     "SGDClassifier",
     "SVC",

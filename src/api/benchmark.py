@@ -35,7 +35,7 @@ def model_parameters(model_name):
 
 @bp.route('models/<model_name>/benchmark', methods=('POST',))
 def benchmark(model_name):
-    params = normalize_parameters(request.get_json())
+    params = normalize_parameters(model_name, request.get_json())
 
     X_train, X_test, y_train, y_test = db.load_data()
 
@@ -76,7 +76,7 @@ def map_model(model_name, **params):
     else:
         raise ValueError(f"Model {model_name} not found")
 
-def normalize_parameters(params):
+def normalize_parameters(model_name, params):
     keys_to_remove = []
 
     for key, value in params.items():
@@ -93,7 +93,9 @@ def normalize_parameters(params):
         del params[key]
 
     # Seem important for me :-)
-    params['n_jobs'] = -1
+    no_n_jobs_models = ['DecisionTreeClassifier', 'SVC', 'NearestCentroid']
+    if model_name not in no_n_jobs_models:
+        params['n_jobs'] = -1
 
     return params
 
