@@ -1,5 +1,12 @@
 [
     "KNeighborsClassifier",
     "DecisionTreeClassifier",
-    "RandomForestClassifier"
+    "RandomForestClassifier",
+    "LogisticRegression",
+    "LinearRegression",
+    "Perceptron",
+    "SGDClassifier",
+    "SVC",
+    "NearestCentroid",
+    "GaussianProcessClassifier"
 ]

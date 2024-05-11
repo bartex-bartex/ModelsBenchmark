@@ -1,11 +1,13 @@
 import json
 import os
 from . import db
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors import KNeighborsClassifier, NearestCentroid
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-
+from sklearn.linear_model import LogisticRegression, LinearRegression, Perceptron, SGDClassifier
+from sklearn.svm import SVC
+from sklearn.gaussian_process import GaussianProcessClassifier
 
 from flask import Blueprint, flash, g, redirect, render_template, request, url_for, current_app
 from werkzeug.exceptions import abort
@@ -57,6 +59,20 @@ def map_model(model_name, **params):
         return DecisionTreeClassifier(**params)
     elif model_name == "RandomForestClassifier":
         return RandomForestClassifier(**params)
+    elif model_name == "LogisticRegression":
+        return LogisticRegression(**params)
+    elif model_name == "LinearRegression":
+        return LinearRegression(**params)
+    elif model_name == "Perceptron":
+        return Perceptron(**params)
+    elif model_name == "SGDClassifier":
+        return SGDClassifier(**params)
+    elif model_name == "SVC":
+        return SVC(**params)
+    elif model_name == "NearestCentroid":
+        return NearestCentroid(**params)
+    elif model_name == "GaussianProcessClassifier":
+        return GaussianProcessClassifier(**params)
     else:
         raise ValueError(f"Model {model_name} not found")
 
