@@ -15,6 +15,8 @@ namespace ModelsBenchmarkUI
             InitializeComponent();
             ConfigureGridView();
             ApiHelper.InitializeClient();
+
+            this.Text = this.Text + " - " + GlobalConfig.ApiUrl;
         }
 
         private async Task LoadData()

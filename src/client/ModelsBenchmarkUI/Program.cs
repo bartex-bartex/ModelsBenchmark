@@ -16,6 +16,7 @@ namespace ModelsBenchmarkUI
 
             GlobalConfig.InitializeConnections(DataSourceType.TextFile);
 
+            Application.Run(new ChooseServerForm());
             Application.Run(new Form1());
         }
     }
