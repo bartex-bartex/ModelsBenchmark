@@ -104,7 +104,7 @@
         "metric" : ["euclidean", "manhattan", "chebyshev", "minkowski"],
         "shrink_threshold" : []
     },
-    "GausssianProcessClassifier" : {
+    "GaussianProcessClassifier" : {
         "kernel" : ["RBF", "Matern", "RationalQuadratic", "ExpSineSquared", "DotProduct", "ConstantKernel", "WhiteKernel", "PairwiseKernel"],
         "optimizer" : ["fmin_l_bfgs_b", "fmin_tnc", "fmin_cobyla", "fmin_powell", "fmin_cg", "fmin_ncg", "fmin_bfgs", "fmin_cgd", "fmin_ncg", "fmin_l_bfgs_b", "fmin_tnc", "fmin_cobyla", "fmin_powell", "fmin_cg", "fmin_ncg", "fmin_bfgs", "fmin_cgd", "fmin_ncg"],
         "n_restarts_optimizer" : [],
